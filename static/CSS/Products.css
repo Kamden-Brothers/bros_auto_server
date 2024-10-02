@@ -1,0 +1,23 @@
+﻿.display {
+    width: 45vw;
+    height: auto;
+}
+
+.smallPicture {
+    width: 8vw;
+    height: auto;
+}
+
+.information{
+    text-align:left;
+    font-size:25px;
+}
+
+td{
+    width: 50vw;
+}
+
+.none_found {
+    text-align: center;
+    font-size: 50px;
+}

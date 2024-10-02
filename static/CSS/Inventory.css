@@ -1,0 +1,63 @@
+﻿
+
+span {
+    float: right;
+}
+
+table {
+    border-collapse: collapse;
+    background:white;
+}
+
+.topnav {
+    overflow: hidden;
+    margin: 4px 0px 8px 4px;
+}
+
+.CarImage {
+    border: solid 4px black;
+    align-content: center;
+    width: 33vw;
+}
+
+.CarDetails {
+    border: solid 4px black;
+    border-top: 0;
+    align-content: center;
+}
+
+.BlankSpace {
+    border: hidden;
+}
+
+.ArrowButton {
+    height: 19px;
+}
+
+.Rotate {
+    transform: rotate(180deg) scaleX(-1);
+}
+
+#AllCars {
+    align-content: center;
+    margin: 10px 4px 10px 4px;
+}
+
+.InventoryImage {
+    width: 100%;
+    height: auto;
+    align-content: center;
+}
+
+.unBulletedList {
+list-style-type:none;
+vertical-align: top;
+line-height: 30px;
+}
+
+.Heading {
+    font: bold;
+    font-size: 30px;
+    color: #160f79;
+}
+
