@@ -1,6 +1,9 @@
+
+let default_image = "static\\Resources\\CarLot.jpg"
+
 // Store data for a vehicle
 class Vehicle {
-    constructor(stockNumber, year, make, model, transmission, engine, vin, miles, color, price, img_path, imgs) {
+    constructor(stockNumber, year, make, model, transmission, engine, vin, miles, color, price, imgs) {
         this.stockNumber = stockNumber.replace(/['"]+/g, '');
         this.year = year.replace(/['"]+/g, '');
         this.make = make.replace(/['"]+/g, '');
@@ -11,8 +14,15 @@ class Vehicle {
         this.miles = miles.replace(/['"]+/g, '');
         this.color = color.replace(/['"]+/g, '');
         this.price = price.replace(/['"]+/g, '');
-        this.img_path = img_path.replace(/['"]+/g, '');
-        this.imgs = imgs.replace(/['"]+/g, '');
+		console.log(price)
+		console.log(imgs)
+		this.imgs = imgs//.replace(/['"]+/g, '');
+		if (this.imgs.length > 0) {
+			this.img_path = this.imgs[0].replace(/['"]+/g, '');
+		} else {
+			this.img_path = default_image;
+			console.log(default_image)
+		}
         this.html = null
         // string for searching
         this.search_string = this.stockNumber + ' ' + this.year + ' ' + this.make + ' ' + this.model + ' ' + this.transmission + ' ' + this.vin + ' ' + this.color
@@ -70,7 +80,7 @@ $.getJSON("/all_vehicles", function (result) {
     });
     MappedVehicles.forEach(function (item, index) {
         var currentLine = item[1]
-        let p = new Vehicle(item[0], currentLine[0], currentLine[1], currentLine[2], currentLine[3], currentLine[4], currentLine[5], currentLine[6], currentLine[7], currentLine[8], currentLine[9], currentLine[10])
+        let p = new Vehicle(item[0], currentLine[0], currentLine[1], currentLine[2], currentLine[3], currentLine[4], currentLine[5], currentLine[6], currentLine[7], currentLine[8], currentLine[9])
         invVehicles.push(p)
     });
     invVehicles = sort_objects(invVehicles)

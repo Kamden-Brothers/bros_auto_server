@@ -54,7 +54,7 @@ $.getJSON(`/get_vehicle_data?stockNumber=${urlParams.stockNumber}`, function (re
     img = document.createElement('img')
     img.classList.add("display")
 
-    images = product[11]
+    images = product[9]
     num_images = images.length
     if (images == 0) {
         img.src = default_image;
