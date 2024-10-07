@@ -30,11 +30,6 @@ let invVehicles = [];
 // Tracks direction of arrow
 let asc_desc_sort = 1;
 
-// Add div with text to element
-function add_element(el, text) {
-    $("<div></div>").text(text).appendTo(el);
-}
-
 // Sort vehicles based on an attribute (Year, Miles, or Price)
 function sort_objects(items, sort_attribute = "Year") {
     return items.sort((a, b) => {
@@ -93,8 +88,8 @@ $.getJSON("/all_vehicles", function (result) {
             .addClass("Heading");
 
         image_table_data.attr('id', CurrentVehicle.stockNumber + "button").append(linkTextElement);
-        add_element(image_table_data, "Miles: " + CurrentVehicle.miles);
-        add_element(image_table_data, "Price: " + CurrentVehicle.price);
+        $("<div></div>").text("Miles: " + CurrentVehicle.miles).appendTo(image_table_data);
+        $("<div></div>").text("Price: " + CurrentVehicle.price).appendTo(image_table_data);
 
         image_table_data.append("<br>");
         const tr = table.find('tr').last(); // Find the last row to append to
@@ -146,6 +141,7 @@ function search_cars() {
     });
 }
 
+// Check for sort variable to change
 const SortVeh = $('#SortVehicles');
 SortVeh.change(event => {
     const inputText = event.target.value;
@@ -153,6 +149,7 @@ SortVeh.change(event => {
     search_cars();
 });
 
+// Change asc desc status
 function flip_sort() {
     const SortButton = $("#SortButton");
     if (SortButton.hasClass("Rotate")) {
@@ -167,6 +164,7 @@ function flip_sort() {
     search_cars();
 }
 
+// Check for search text
 const SearchOpt = $('#SearchOption');
 SearchOpt.change(() => {
     search_cars();

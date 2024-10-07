@@ -14,14 +14,6 @@ var urlParams = {};
 
 console.log(urlParams);
 
-function add_break(element) {
-    $('<br>').appendTo(element);
-}
-
-function add_element(el, text) {
-    $('<div></div>').html(text).appendTo(el);
-}
-
 const ImagePath = "static/Images/";
 const default_image = "static/Resources/CarLot.jpg";
 
