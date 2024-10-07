@@ -9,8 +9,7 @@ from waitress import serve
 
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
 
-images = os.listdir(r'static\Images')
-
+# Load in csv data
 file_path = 'static\\JavaScript\\WebsiteVehicles.CSV'
 car_dict = {}
 with open(file_path, mode ='r') as file:    
@@ -18,6 +17,8 @@ with open(file_path, mode ='r') as file:
        for lines in csvFile:
             car_dict[lines[0]] = lines[1:]
 
+# Add images to each car
+images = os.listdir(r'static\Images')
 for key in car_dict.keys():
     print(key)
     matching_images = [i for i in images if re.search(f'\\d+_{key}_\\d+', i)]
@@ -48,7 +49,6 @@ def about():
 
 @app.route('/ProductPage')
 def template():
-    print('yes')
     return render_template("ProductPage.html")
 
 @app.route('/RepairShop')
@@ -57,11 +57,12 @@ def repair_shop():
 
 @app.route('/all_vehicles')
 def all_vehicles():
+    '''Return vehicles dictionary'''
     return {'all_vehicles': car_dict}
-    return {'error': None}
 
 @app.route('/get_vehicle_data')
 def get_vehicle_data():
+    '''Get product based on stock number'''
     stockNumber = request.args.get('stockNumber')
     if stockNumber in car_dict.keys():
         return {'product': car_dict[stockNumber]}

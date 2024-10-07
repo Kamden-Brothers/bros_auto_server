@@ -12,12 +12,11 @@ body {
 
 .footer {
     padding: 60px;
-    
     background: #160f79;
     color: white;
     font-size: 25px;
+    min-height: 33vh;
 }
-
 
 .header {
     margin: 0px 0px 0px 0px;
@@ -27,11 +26,7 @@ body {
     background: #160f79;
     color: white;
     font-size: 25px;
-}
-
-#CurrentPage
-{
-    color: lime;
+    min-height: 20vh;
 }
 
 .reference {
@@ -39,3 +34,11 @@ body {
     text-decoration: none;
 }
 
+.minimumHeightDiv {
+    min-height: 30vh;
+}
+
+#CurrentPage
+{
+    color: lime;
+}

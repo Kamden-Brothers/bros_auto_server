@@ -57,7 +57,8 @@ for imgFile in imgFiles:
 if len(os.listdir(temp_save)) > 10:
     print(os.listdir(temp_save))
     
-    shutil.rmtree(new_path)
+    if os.path.exists(new_path):
+        shutil.rmtree(new_path)
     os.mkdir(new_path)
     for item in os.listdir(temp_save):
         src_path = os.path.join(temp_save, item)
