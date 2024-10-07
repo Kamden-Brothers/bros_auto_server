@@ -12,7 +12,7 @@
 
 # Project Specific
 credentials.json
-Images/
+static/Images/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
